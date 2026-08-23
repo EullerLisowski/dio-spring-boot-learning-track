@@ -12,8 +12,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.util.UUID;
 
+import org.hibernate.annotations.CreationTimestamp;
 @Entity
 @Data
 @AllArgsConstructor
@@ -27,12 +29,16 @@ public class TransactionEntity {
     @Enumerated(EnumType.STRING)
     private Category category;
 
+    @CreationTimestamp
+    private Instant createdOn;
+
     public static TransactionEntity from(Transaction transaction) {
         return new TransactionEntity(
                 transaction.getId().uuid(),
                 transaction.getDescription(),
                 transaction.getAmount(),
-                transaction.getCategory());
+                transaction.getCategory(),
+                transaction.getCreatedOn());
     }
 
     public Transaction toDomain() {
@@ -40,7 +46,7 @@ public class TransactionEntity {
                 new TransactionId(this.id),
                 this.description,
                 this.amount,
-                this.category
-        );
+                this.category,
+                this.createdOn);
     }
 }

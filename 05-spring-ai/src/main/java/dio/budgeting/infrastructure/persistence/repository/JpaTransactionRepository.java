@@ -6,6 +6,8 @@ import dio.budgeting.domain.TransactionRepository;
 import dio.budgeting.infrastructure.persistence.entity.TransactionEntity;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
+import java.time.Instant;
 import java.util.List;
 
 @Repository
@@ -29,4 +31,11 @@ public class JpaTransactionRepository implements TransactionRepository {
                 .map(TransactionEntity::toDomain)
                 .toList();
     }
+
+    @Override
+    public BigDecimal sumAmountByCategoryAndCreatedOnBetween(Category category, Instant starDate,
+            Instant endDate) {
+        return transactionEntityRepository.sumAmountByCategoryAndCreatedOnBetween(category, starDate, endDate);
+    }
+
 }
