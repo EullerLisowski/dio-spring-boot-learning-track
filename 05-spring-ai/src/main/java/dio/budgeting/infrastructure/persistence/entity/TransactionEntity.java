@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
@@ -21,7 +22,7 @@ public class TransactionEntity {
     @Id
     private UUID id;
     private String description;
-    private long amount;
+    private BigDecimal amount;
 
     @Enumerated(EnumType.STRING)
     private Category category;
