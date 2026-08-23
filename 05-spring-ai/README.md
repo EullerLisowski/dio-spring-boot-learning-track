@@ -1,4 +1,9 @@
-# DIO Spring Boot - Final Project 05: Spring AI (budgeting)
+## DIO Spring Boot - Final Project 05: Spring AI (budgeting)
+
+# INCREMENTOS DO PROJETO FINAL
+1. [Correção do bug de conversão do valor na criação de transações](https://github.com/EullerLisowski/dio-spring-boot-learning-track/issues/1)
+2. [Implementação da consulta de gastos por período](https://github.com/EullerLisowski/dio-spring-boot-learning-track/issues/2)
+
 
 ## Introduction
 
